@@ -5,6 +5,10 @@
   const { h, icon } = P;
 
   const REASONS = ['Documentos ilegibles', 'Documento vencido', 'Los datos no coinciden con el DNI', 'Faltan documentos válidos'];
+  
+  // Touch devices (iOS/Android) can't render PDFs inside an iframe.
+  const isTouch = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+  const canInline = navigator.pdfViewerEnabled !== false && !isTouch;
 
   P.whenAuthed(() => P.ready(() => {
     const id = P.params.get('id');
@@ -135,7 +139,13 @@
         const blob = await P.api.blob(doc.url);
         if (req !== viewer.req) return; // user moved on
         viewer.url = URL.createObjectURL(blob);
-        viewer.body.replaceChildren(h('iframe', { class: 'viewer__frame', src: viewer.url, title: 'Vista previa de ' + doc.label }));
+        
+        viewer.body.replaceChildren(canInline
+          ? h('iframe', { class: 'viewer__frame', src: viewer.url, title: 'Vista previa de ' + doc.label })
+          : h('div', { class: 'viewer__loading' },
+            icon('doc', 'icon viewer__icon'),
+            h('p', {}, 'Tu dispositivo no puede mostrar el PDF dentro del portal.'),
+            h('a', { class: 'btn btn--primary', href: viewer.url, target: '_blank', rel: 'noopener' }, icon('external'), 'Abrir PDF')));
       } catch (err) {
         if (req !== viewer.req) return;
         viewer.body.replaceChildren(P.components.errorState(err.message, () => showDoc(i)));
