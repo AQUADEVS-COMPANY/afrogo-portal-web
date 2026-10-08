@@ -1,0 +1,15 @@
+/* Design tokens (same identity as afrogo-web) */
+:root{
+  --brand:#5B0FD6;--bg:#0B0620;--surface:#140B33;--accent:#8B5CF6;--text:#FFFFFF;--muted:#B8A9E0;
+  --accent-strong:#7D45EE;
+  --success:#4ADE80;--warning:#FBBF24;--danger:#FF8A9B;
+  --success-soft:rgba(74,222,128,.10);--warning-soft:rgba(251,191,36,.12);--danger-soft:rgba(255,138,155,.12);
+  --gradient:linear-gradient(135deg,var(--brand),var(--accent));
+  --gradient-btn:linear-gradient(135deg,var(--brand),var(--accent-strong));
+  --gradient-success:linear-gradient(135deg,#22C55E,#4ADE80);
+  --glass:rgba(255,255,255,.06);--glass-border:rgba(255,255,255,.14);
+  --glow:0 14px 40px -10px rgba(139,92,246,.6);--glow-sm:0 6px 22px -6px rgba(139,92,246,.55);
+  --font-title:'Poppins',system-ui,sans-serif;--font-text:'Inter',system-ui,sans-serif;
+  --radius-sm:12px;--radius:20px;--radius-lg:30px;--radius-pill:999px;
+  --sidebar-w:268px;--topbar-h:68px;--ease:cubic-bezier(.22,1,.36,1);
+}

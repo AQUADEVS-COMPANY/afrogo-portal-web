@@ -1,0 +1,25 @@
+/* Reset and base typography */
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%;color-scheme:dark}
+body{min-height:100vh;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font-text);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60rem 40rem at 85% -10%,rgba(91,15,214,.35),transparent 60%),radial-gradient(40rem 30rem at -10% 110%,rgba(139,92,246,.18),transparent 60%)}
+body.is-guarding{visibility:hidden}
+body.no-scroll{overflow:hidden}
+svg,img{display:block;max-width:100%}
+h1,h2,h3,h4{font-family:var(--font-title);font-weight:800;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(1.7rem,4vw,2.4rem)}
+h2{font-size:clamp(1.25rem,2.6vw,1.6rem)}
+h3{font-size:1.05rem}
+p{color:var(--muted)}
+a{color:inherit}
+ul,ol{list-style:none;padding:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid #C4B5FD;outline-offset:3px;border-radius:6px}
+::selection{background:var(--accent);color:#fff}
+.muted{color:var(--muted)}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:1rem;top:-4rem;z-index:500;padding:.7rem 1.1rem;border-radius:var(--radius-sm);background:var(--brand);color:#fff;font-weight:700;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:1rem}

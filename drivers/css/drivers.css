@@ -1,0 +1,7 @@
+.toolbar{display:grid;gap:1rem;padding:1.1rem}
+.search{position:relative}
+.search>.icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.search .input{padding-left:3rem}
+.toolbar__selects{display:grid;gap:.7rem;align-items:center}
+.result-count{margin:1rem 0 .8rem;font-size:.9rem}
+@media(min-width:760px){.toolbar__selects{grid-template-columns:1fr 1.3fr auto}}

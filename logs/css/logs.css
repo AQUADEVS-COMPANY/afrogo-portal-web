@@ -1,0 +1,4 @@
+.toolbar{display:grid;gap:1rem;padding:1.1rem}
+.logs-filter{display:grid;gap:.8rem;align-items:end}
+#logsList{margin-top:1.2rem}
+@media(min-width:760px){.logs-filter{grid-template-columns:1fr auto auto}}
